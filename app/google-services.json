@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "891398540031",
+    "project_id": "ul-student-handbook",
+    "storage_bucket": "ul-student-handbook.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891398540031:android:239c0c3fe4af5f0a859aca",
+        "android_client_info": {
+          "package_name": "com.example.ulstudenthandbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891398540031-v4shu6ccch9n00d9evsdmniv541ng4m9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmTegBIU_9q1XBXT-5fNLgIwWw3UEXQck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891398540031-v4shu6ccch9n00d9evsdmniv541ng4m9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
