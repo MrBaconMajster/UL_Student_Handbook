@@ -74,9 +74,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void SignupPressed(View view) {
-        startActivity(new Intent(getApplicationContext(), SignUp.class));
+
     }
 
     public void OfflineModePressed(View view) {
+        startActivity(new Intent(getApplicationContext(), Modules.class));
     }
 }
