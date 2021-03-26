@@ -2,10 +2,15 @@ package com.example.ulstudenthandbook;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     Button logInBtn;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
-                    startActivity(new Intent(getApplicationContext(), Map.class));
+                    startActivity(new Intent(getApplicationContext(), MainActivity2.class));
                 }
                 else
                 {
@@ -73,11 +79,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void SignupPressed(View view) {
 
+    public void SignupPressed(View view) {
+        startActivity(new Intent(getApplicationContext(), SignUp.class));
     }
 
     public void OfflineModePressed(View view) {
-        startActivity(new Intent(getApplicationContext(), Modules.class));
+        startActivity(new Intent(getApplicationContext(), MainActivity2.class));
     }
 }

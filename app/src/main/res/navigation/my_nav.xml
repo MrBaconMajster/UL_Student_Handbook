@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/mapsFrag">
+    <fragment
+        android:id="@+id/mapsFrag"
+        android:name="com.example.ulstudenthandbook.MapsFrag"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFrag_to_mainBuildingMapFrag"
+            app:destination="@id/mainBuildingMapFrag" />
+        <action
+            android:id="@+id/action_mapsFrag_to_timetableFrag"
+            app:destination="@id/timetableFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/timetableFrag"
+        android:name="com.example.ulstudenthandbook.TimetableFrag"
+        android:label="fragment_timetable"
+        tools:layout="@layout/fragment_timetable" >
+        <action
+            android:id="@+id/action_timetableFrag_to_mapsFrag"
+            app:destination="@id/mapsFrag" />
+        <action
+            android:id="@+id/action_timetableFrag_to_mainBuildingMapFrag"
+            app:destination="@id/mainBuildingMapFrag" />
+        <action
+            android:id="@+id/action_timetableFrag_to_addModuleFrag"
+            app:destination="@id/addModuleFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainBuildingMapFrag"
+        android:name="com.example.ulstudenthandbook.MainBuildingMapFrag"
+        android:label="fragment_main_building_map"
+        tools:layout="@layout/fragment_main_building_map" >
+        <action
+            android:id="@+id/action_mainBuildingMapFrag_to_mapsFrag"
+            app:destination="@id/mapsFrag" />
+        <action
+            android:id="@+id/action_mainBuildingMapFrag_to_timetableFrag"
+            app:destination="@id/timetableFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/addModuleFrag"
+        android:name="com.example.ulstudenthandbook.AddModuleFrag"
+        android:label="fragment_add_module"
+        tools:layout="@layout/fragment_add_module" >
+        <action
+            android:id="@+id/action_addModuleFrag_to_timetableFrag"
+            app:destination="@id/timetableFrag" />
+    </fragment>
+</navigation>
