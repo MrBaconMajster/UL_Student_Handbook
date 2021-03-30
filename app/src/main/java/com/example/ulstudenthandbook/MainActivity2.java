@@ -16,6 +16,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -65,11 +66,47 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        if(item.getItemId() == R.id.menu_nav_logout)
+        //Reads which fragment the navHost is currently holding. eg.fragment_maps
+        CharSequence currentFragmentLabel =  Navigation.findNavController(navHostFragment).getCurrentDestination().getLabel();
+        String currentFragmentName = currentFragmentLabel.toString();
+
+        //Changes the screen from the current fragment to the transition fragment
+        if (currentFragmentName.equals("fragment_maps"))
         {
-         Navigation.findNavController(navHostFragment).navigate(R.id.action_mapsFrag_to_timetableFrag);
+            Navigation.findNavController(navHostFragment).navigate(R.id.action_mapsFrag_to_transitionFrag);
+        }
+        else if (currentFragmentName.equals("fragment_timetable"))
+        {
+            Navigation.findNavController(navHostFragment).navigate(R.id.action_timetableFrag_to_transitionFrag);
+        }
+        else if (currentFragmentName.equals("fragment_main_building_map"))
+        {
+            Navigation.findNavController(navHostFragment).navigate(R.id.action_mainBuildingMapFrag_to_transitionFrag);
+        }
+        else if (currentFragmentName.equals("fragment_add_module"))
+        {
+            Navigation.findNavController(navHostFragment).navigate(R.id.action_addModuleFrag_to_transitionFrag);
+        }
+
+        // Goes from transition fragment to the selected fragment
+
+        if(item.getItemId() == R.id.menu_nav_timetable)
+        {
+         Navigation.findNavController(navHostFragment).navigate(R.id.action_transitionFrag_to_timetableFrag);
+        }
+        else if (item.getItemId() == R.id.menu_nav_map)
+        {
+            Navigation.findNavController(navHostFragment).navigate(R.id.action_transitionFrag_to_mapsFrag);
         }
         else if (item.getItemId() == R.id.menu_nav_mainbuilding)
+        {
+            Navigation.findNavController(navHostFragment).navigate(R.id.action_transitionFrag_to_mainBuildingMapFrag);
+        }
+        else if (item.getItemId() == R.id.menu_nav_buildings)
+        {
+            Navigation.findNavController(navHostFragment).navigate(R.id.action_transitionFrag_to_mapsFrag);
+        }
+        else if (item.getItemId() == R.id.menu_nav_logout)
         {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }
