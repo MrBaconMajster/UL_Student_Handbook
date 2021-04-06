@@ -63,5 +63,17 @@
         <action
             android:id="@+id/action_transitionFrag_to_addModuleFrag"
             app:destination="@id/addModuleFrag" />
+        <action
+            android:id="@+id/action_transitionFrag_to_buildingFrag"
+            app:destination="@id/buildingFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/buildingFrag"
+        android:name="com.example.ulstudenthandbook.BuildingFrag"
+        android:label="fragment_building"
+        tools:layout="@layout/fragment_building" >
+        <action
+            android:id="@+id/action_buildingFrag_to_transitionFrag"
+            app:popUpTo="@id/transitionFrag" />
     </fragment>
 </navigation>

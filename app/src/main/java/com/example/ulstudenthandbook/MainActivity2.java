@@ -87,6 +87,10 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
         {
             Navigation.findNavController(navHostFragment).navigate(R.id.action_addModuleFrag_to_transitionFrag);
         }
+        else if (currentFragmentName.equals("fragment_building"))
+        {
+            Navigation.findNavController(navHostFragment).navigate(R.id.action_buildingFrag_to_transitionFrag);
+        }
 
         // Goes from transition fragment to the selected fragment
 
@@ -104,7 +108,7 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
         }
         else if (item.getItemId() == R.id.menu_nav_buildings)
         {
-            Navigation.findNavController(navHostFragment).navigate(R.id.action_transitionFrag_to_mapsFrag);
+            Navigation.findNavController(navHostFragment).navigate(R.id.action_transitionFrag_to_buildingFrag);
         }
         else if (item.getItemId() == R.id.menu_nav_addModule)
         {
