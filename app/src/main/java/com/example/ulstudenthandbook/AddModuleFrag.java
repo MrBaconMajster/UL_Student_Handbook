@@ -25,19 +25,19 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
     private TextView textViewBlock,textViewRoom,textViewBuilding;
     private Spinner spinnerTimeStart,spinnerTimeEnd,spinnerBuilding,spinnerBlock,spinnerColor;
 
-    private static final String[] timeArray = {"9:00", "9:30", "10:00", "10:30", "11:00"
+    private static final String[] timeArray = {"","9:00", "9:30", "10:00", "10:30", "11:00"
             ,"11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00"
             , "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00"
             , "19:30", "20:00"};
 
-    private static final String[] buildingArray = {"Analog(AD)","Computer Science(CS)","Engineering Research(ER)",
+    private static final String[] buildingArray = {"","Analog(AD)","Computer Science(CS)","Engineering Research(ER)",
             "Foundation(F)","Glucksman Library(GL)","Health Sciences(HS)","Irish World Academy(IW)","Kemmy Business School(KB)",
             "Languages(LC)","Lonsdale(L)","Main(A,B,C,D,E)","Medical School(GEMS)","PESS(P)","Schrödinger(SR)","Schuman(S)"};
 
 
-    private static final String[] blockArray ={"A Block","B Block","C Block","D Block","E Block"};
+    private static final String[] blockArray ={"","A Block","B Block","C Block","D Block","E Block"};
 
-    private static final String[] colorArray ={"Red","Blue","Green","Orange","Pink","Black","Purple"};
+    private static final String[] colorArray ={"","Red","Blue","Green","Orange","Pink","Black","Purple"};
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -126,13 +126,19 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
 
         //spinner block
         spinnerBlock = (Spinner)view.findViewById(R.id.block);
+
+
         ArrayAdapter<String>adapterBlock = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_spinner_item,blockArray);
-
         adapterBlock.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerBlock.setAdapter(adapterBlock);
+
+
+
         spinnerBlock.setOnItemSelectedListener(this);
         spinnerBlock.setVisibility(View.GONE);
+
+
 
         //spinner color
         spinnerColor = (Spinner)view.findViewById(R.id.color);
@@ -144,14 +150,16 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
         spinnerColor.setOnItemSelectedListener(this);
 
 
-
         return view;
     }
 
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-        if(parent == spinnerBuilding && position == 10){
+
+
+
+        if(parent == spinnerBuilding && parent.getItemAtPosition(position).equals("Main(A,B,C,D,E)")){
             spinnerBlock.setVisibility(View.VISIBLE);
             textViewBlock.setVisibility(View.VISIBLE);
         }else if(parent == spinnerBuilding && position != 10){
@@ -159,6 +167,8 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
             textViewBlock.setVisibility(View.GONE);
         }
     }
+
+
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {

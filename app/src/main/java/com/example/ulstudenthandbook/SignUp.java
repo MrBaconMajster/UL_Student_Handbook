@@ -102,6 +102,6 @@ public class SignUp extends AppCompatActivity {
     }
 
     public void OfflineModePressed(View view) {
-        startActivity(new Intent(getApplicationContext(), Modules.class));
+        startActivity(new Intent(getApplicationContext(), MapsFrag.class));
     }
 }
