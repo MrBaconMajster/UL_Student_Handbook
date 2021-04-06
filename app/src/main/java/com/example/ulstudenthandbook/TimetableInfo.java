@@ -11,6 +11,7 @@ public class TimetableInfo {
     public ArrayList<TimetableEntry> ThursdayEntries = new ArrayList<TimetableEntry>();
     public ArrayList<TimetableEntry> FridayEntries = new ArrayList<TimetableEntry>();
     public ArrayList<TimetableEntry> SaturdayEntries = new ArrayList<TimetableEntry>();
+    public ArrayList<TimetableEntry> SundayEntries = new ArrayList<TimetableEntry>();
 
      TimetableInfo()
     {

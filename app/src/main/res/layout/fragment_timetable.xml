@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="40dp"
         android:background="#00432B"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,9 +21,336 @@
         android:id="@+id/TimetableViewModeSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
+
+        android:layout_marginBottom="10dp"
+        android:theme="@style/spinnerTheme"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dayIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="Monday"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:layout_weight="1"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dayIndicator">
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#535353"
+            android:dividerHeight="2dip"
+            android:divider="@color/white"
+            android:isScrollContainer="true"
+            android:showDividers="middle">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+>
+
+                <TextView
+                    android:layout_width="52dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text=" 9:00" />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:background="@color/white"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/Entry9"
+                    android:layout_width="61dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:paddingLeft="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:text="CSGdsad \n RoomP" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+           >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="10:00" />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:background="@color/white"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/Entry10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:paddingLeft="15dp"
+                    android:gravity="center_vertical"
+
+                    android:text="CSGdsad \n RoomP" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+               >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="11:00" />
+                <TextView
+                    android:layout_width="1dp"
+                    android:background="@color/white"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/Entry11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:paddingLeft="15dp"
+                    android:gravity="center_vertical"
+                    android:text="CSGdsad \n RoomP" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+           >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="12:00" />
+                <TextView
+                    android:layout_width="1dp"
+                    android:background="@color/white"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/Entry12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:paddingLeft="15dp"
+                    android:gravity="center_vertical"
+                    android:text="CSGdsad \n RoomP" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="100dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="13:00" />
+                <TextView
+                    android:layout_width="1dp"
+                    android:background="@color/white"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/Entry13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:paddingLeft="15dp"
+                    android:gravity="center_vertical"
+                    android:text="CSGdsad \n RoomP" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="14:00" />
+                <TextView
+                    android:layout_width="1dp"
+                    android:background="@color/white"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/Entry14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="15dp"
+                    android:layout_column="2"
+                    android:gravity="center_vertical"
+                    android:text="CSGdsad \n RoomP" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="15:00" />
+                <TextView
+                    android:layout_width="1dp"
+                    android:background="@color/white"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/Entry15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="15dp"
+                    android:layout_column="2"
+                    android:gravity="center_vertical"
+                    android:text="CSGdsad \n RoomP" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+               >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="16:00" />
+                <TextView
+                    android:layout_width="1dp"
+                    android:background="@color/white"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/Entry16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="15dp"
+                    android:layout_column="2"
+                    android:gravity="center_vertical"
+                    android:text="CSGdsad \n RoomP" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="17:00" />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:id="@+id/Entry17"
+                    android:layout_width="101dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:paddingLeft="15dp"
+                    android:gravity="center_vertical"
+                    android:text="CSGdsad \n RoomP" />
+
+            </TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white"/>
+
+
+        </TableLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/rightArrow"
+        android:layout_width="42dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/right_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/dayIndicator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dayIndicator" />
+
+    <ImageView
+        android:id="@+id/leftArrow"
+        android:layout_width="42dp"
+        android:layout_height="46dp"
+        android:src="@drawable/left_arrow_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/dayIndicator"
+        app:layout_constraintEnd_toStartOf="@+id/rightArrow"
+        app:layout_constraintTop_toTopOf="@+id/dayIndicator" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

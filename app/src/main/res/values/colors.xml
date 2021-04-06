@@ -8,6 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="darkGreen">#005335</color>
-    <color name="LightGreen">#0A730D</color>
-
+    <color name="Red">#D30000</color>
+    <color name="Blue">#0231A8</color>
+    <color name="Green">#0A730D</color>
+    <color name="Orange">#FF5722</color>
+    <color name="Pink">#E91E63</color>
+    <color name="Black">#000000</color>
+    <color name="Purple">#673AB7</color>
+    <color name="Grey">#535353</color>
 </resources>

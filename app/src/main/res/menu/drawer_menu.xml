@@ -4,14 +4,6 @@
     android:theme="@style/ThemeOverlay.AppCompat.Light"
     >
 
-    <item
-        android:id="@+id/app_bar_search"
-        android:hint="Search for buildings"
-
-        android:icon="@drawable/search_icon"
-        android:title=""
-        app:actionViewClass="android.widget.SearchView" />
-
     <group
         android:id="@+id/group5"
         android:checkableBehavior="single">
