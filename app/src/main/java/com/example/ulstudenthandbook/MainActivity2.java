@@ -106,6 +106,10 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
         {
             Navigation.findNavController(navHostFragment).navigate(R.id.action_transitionFrag_to_mapsFrag);
         }
+        else if (item.getItemId() == R.id.menu_nav_addModule)
+        {
+            Navigation.findNavController(navHostFragment).navigate(R.id.action_transitionFrag_to_addModuleFrag);
+        }
         else if (item.getItemId() == R.id.menu_nav_logout)
         {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));

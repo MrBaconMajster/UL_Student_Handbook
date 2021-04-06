@@ -60,5 +60,8 @@
         <action
             android:id="@+id/action_transitionFrag_to_timetableFrag"
             app:destination="@id/timetableFrag" />
+        <action
+            android:id="@+id/action_transitionFrag_to_addModuleFrag"
+            app:destination="@id/addModuleFrag" />
     </fragment>
 </navigation>
