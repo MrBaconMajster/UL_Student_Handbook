@@ -32,7 +32,7 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
 
     private static final String[] buildingArray = {"","Analog(AD)","Computer Science(CS)","Engineering Research(ER)",
             "Foundation(F)","Glucksman Library(GL)","Health Sciences(HS)","Irish World Academy(IW)","Kemmy Business School(KB)",
-            "Languages(LC)","Lonsdale(L)","Main(A,B,C,D,E)","Medical School(GEMS)","PESS(P)","Schrödinger(SR)","Schuman(S)"};
+            "Languages(LC)","Lonsdale(L)","Main(A,B,C,D,E)","Medical School(GEMS)","PESS(P)","Schrödinger(SR)","Schuman(S)","Tierney"};
 
 
     private static final String[] blockArray ={"","A Block","B Block","C Block","D Block","E Block"};

@@ -1,15 +1,18 @@
 package com.example.ulstudenthandbook;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
@@ -24,13 +27,14 @@ public class BuildingFrag extends Fragment implements AdapterView.OnItemSelected
 
     private ImageView image;
     private Spinner buildingName,buildingCode;
+    private Button button;
 
-
+    Bundle bundle = new Bundle();
 
 
     private static final String[] buildingNameArray = {"","Analog","Computer Science","Engineering Research",
             "Foundation","Glucksman Library","Health Sciences","Irish World Academy","Kemmy Business School",
-            "Languages","Lonsdale","Main","Medical School","PESS","Schrödinger","Schuman"};
+            "Languages","Lonsdale","Main","Medical School","PESS","Schrödinger","Schuman","Tierney"};
 
     private static final String[] buildingCodeArray = {"","AD","CS","ER",
             "F","GL","HS","IW","KB",
@@ -108,12 +112,18 @@ public class BuildingFrag extends Fragment implements AdapterView.OnItemSelected
         buildingImage.setImageResource(R.drawable.book);
 
 
+        //Button
+        button = view.findViewById(R.id.button);
+
+
+
+
         return view;
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        if(parent == buildingName){
+        if(parent == buildingName && position != 16){
             buildingCode.setSelection(position);
 
         }else if(parent == buildingCode){
@@ -122,54 +132,79 @@ public class BuildingFrag extends Fragment implements AdapterView.OnItemSelected
         if(position == 1)
         {
             image.setImageResource(R.drawable.analog);
+            bundle.putString("marker", "analogDevicesBuildingMarker");
         }
         else if(position == 2){
             image.setImageResource(R.drawable.computer);
+            bundle.putString("marker", "csBuildingMarker");
         }
         else if(position == 3){
             image.setImageResource(R.drawable.engineering);
+            bundle.putString("marker", "engineeringBuildingMarker");
         }
         else if(position == 4){
             image.setImageResource(R.drawable.foundation);
+            bundle.putString("marker", "concertHallMarker");
         }
         else if(position == 5){
             image.setImageResource(R.drawable.library);
+            bundle.putString("marker", "libraryMarker");
         }
         else if(position == 6){
             image.setImageResource(R.drawable.health);
+            bundle.putString("marker", "healthScienceBuildingMarker");
         }
         else if(position == 7){
             image.setImageResource(R.drawable.irish);
+            bundle.putString("marker", "irishWorldAcademy");
         }
         else if(position == 8){
             image.setImageResource(R.drawable.kemmy);
+            bundle.putString("marker", "kemmyBusinessMarker");
         }
         else if(position == 9){
             image.setImageResource(R.drawable.languages);
+            bundle.putString("marker", "languagesBuildingMarker");
         }
         else if(position == 10){
             image.setImageResource(R.drawable.lonsdale);
+            bundle.putString("marker", "lonsdaleBuildingMarker");
         }
         else if(position == 11){
             image.setImageResource(R.drawable.main);
+            bundle.putString("marker", "mainBuildingMarker");
         }
         else if(position == 12){
             image.setImageResource(R.drawable.medical);
+            bundle.putString("marker", "schoolOfMedicineBuildingMarker");
         }
         else if(position == 13){
             image.setImageResource(R.drawable.pess);
+            bundle.putString("marker", "pessBuildingMarker");
         }
         else if(position == 14){
             image.setImageResource(R.drawable.schrodinger);
+            bundle.putString("marker", "schrodingerBuildingMarker");
         }
         else if(position == 15){
             image.setImageResource(R.drawable.schuman);
+            bundle.putString("marker", "schumannBuildingMarker");
         }
+        else if(parent == buildingName && position == 16){
+            image.setImageResource(R.drawable.tierney);
+            bundle.putString("marker", "leroBuildingMarker");
+        }
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_buildingFrag_to_mapsFrag, bundle);
+            }
+        });
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
 
 }

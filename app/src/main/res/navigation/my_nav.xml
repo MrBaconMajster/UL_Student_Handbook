@@ -74,6 +74,13 @@
         tools:layout="@layout/fragment_building" >
         <action
             android:id="@+id/action_buildingFrag_to_transitionFrag"
-            app:popUpTo="@id/transitionFrag" />
+            app:destination="@id/transitionFrag" />
+        <action
+            android:id="@+id/action_buildingFrag_to_mapsFrag"
+            app:destination="@id/mapsFrag" />
+        <argument
+            android:name="marker"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 </navigation>
