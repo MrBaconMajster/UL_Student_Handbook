@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="39dp"
         android:background="#00432B"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,282 +55,441 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dayIndicator">
 
-        <TableLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="#535353"
-            android:dividerHeight="2dip"
-            android:divider="@color/white"
-            android:isScrollContainer="true"
-            android:showDividers="middle">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="100dp"
->
-
-                <TextView
-                    android:layout_width="52dp"
-                    android:layout_height="match_parent"
-                    android:layout_column="1"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
-                    android:text=" 9:00" />
-
-                <TextView
-                    android:layout_width="1dp"
-                    android:background="@color/white"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:id="@+id/Entry9"
-                    android:layout_width="61dp"
-                    android:layout_height="match_parent"
-                    android:layout_column="2"
-                    android:paddingLeft="15dp"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:text="CSGdsad \n RoomP" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="100dp"
+       <LinearLayout
+           android:layout_width="50dp"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
            >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_column="1"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
-                    android:text="10:00" />
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:id="@+id/measureofheight"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="9:00"/>
+           
+           <TextView
+               android:layout_width="match_parent"
+               android:id="@+id/measureofheight2"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
 
-                <TextView
-                    android:layout_width="1dp"
-                    android:background="@color/white"
-                    android:layout_height="match_parent" />
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="9:30"/>
 
-                <TextView
-                    android:id="@+id/Entry10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_column="2"
-                    android:paddingLeft="15dp"
-                    android:gravity="center_vertical"
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
 
-                    android:text="CSGdsad \n RoomP" />
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="10:00"/>
 
-            </TableRow>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="100dp"
-               >
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="10:30"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_column="1"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
-                    android:text="11:00" />
-                <TextView
-                    android:layout_width="1dp"
-                    android:background="@color/white"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/Entry11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_column="2"
-                    android:paddingLeft="15dp"
-                    android:gravity="center_vertical"
-                    android:text="CSGdsad \n RoomP" />
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="11:00"/>
 
-            </TableRow>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="11:30"/>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="100dp"
-           >
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="12:00"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_column="1"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
-                    android:text="12:00" />
-                <TextView
-                    android:layout_width="1dp"
-                    android:background="@color/white"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/Entry12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_column="2"
-                    android:paddingLeft="15dp"
-                    android:gravity="center_vertical"
-                    android:text="CSGdsad \n RoomP" />
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="12:30"/>
 
-            </TableRow>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="13:00"/>
 
-            <TableRow
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="13:30"/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="14:00"/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="14:30"/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="15:00"/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="15:30"/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="16:00"/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="16:30"/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="17:00"/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="39dp"
+               android:gravity="center_vertical|center"
+               android:background="@color/Grey"
+               android:text="17:30"/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/black"/>
+
+       </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:minHeight="100dp"
-                >
+                android:background="@color/Grey"
+                android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/entry9"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_column="1"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
-                    android:text="13:00" />
+                    android:layout_marginLeft="30dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
+
                 <TextView
-                    android:layout_width="1dp"
-                    android:background="@color/white"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/Entry13"
+                    android:id="@+id/entry93"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_column="2"
-                    android:paddingLeft="15dp"
-                    android:gravity="center_vertical"
-                    android:text="CSGdsad \n RoomP" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="100dp"
-                >
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
 
                 <TextView
+                    android:id="@+id/entry10"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_column="1"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
-                    android:text="14:00" />
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
+
                 <TextView
-                    android:layout_width="1dp"
-                    android:background="@color/white"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/Entry14"
+                    android:id="@+id/entry103"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="15dp"
-                    android:layout_column="2"
-                    android:gravity="center_vertical"
-                    android:text="CSGdsad \n RoomP" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="100dp"
-                >
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
 
                 <TextView
+                    android:id="@+id/entry11"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_column="1"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
-                    android:text="15:00" />
+                    android:layout_height="40dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
+
                 <TextView
-                    android:layout_width="1dp"
-                    android:background="@color/white"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/Entry15"
+                    android:id="@+id/entry113"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="15dp"
-                    android:layout_column="2"
-                    android:gravity="center_vertical"
-                    android:text="CSGdsad \n RoomP" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="100dp"
-               >
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
 
                 <TextView
+                    android:id="@+id/entry12"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_column="1"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
-                    android:text="16:00" />
+                    android:layout_height="40dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:layout_marginLeft="30dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
+
                 <TextView
-                    android:layout_width="1dp"
-                    android:background="@color/white"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/Entry16"
+                    android:id="@+id/entry123"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="15dp"
-                    android:layout_column="2"
-                    android:gravity="center_vertical"
-                    android:text="CSGdsad \n RoomP" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="100dp">
+                    android:layout_height="40dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:layout_marginLeft="30dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
 
                 <TextView
+                    android:id="@+id/entry13"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_column="1"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
-                    android:text="17:00" />
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
 
                 <TextView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/white" />
+                    android:id="@+id/entry133"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
 
                 <TextView
-                    android:id="@+id/Entry17"
-                    android:layout_width="101dp"
-                    android:layout_height="match_parent"
-                    android:layout_column="2"
-                    android:paddingLeft="15dp"
-                    android:gravity="center_vertical"
-                    android:text="CSGdsad \n RoomP" />
+                    android:id="@+id/entry14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
 
-            </TableRow>
+                <TextView
+                    android:id="@+id/entry143"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/white"/>
+                <TextView
+                    android:id="@+id/entry15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
+
+                <TextView
+                    android:id="@+id/entry153"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
+
+                <TextView
+                    android:id="@+id/entry16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
+
+                <TextView
+                    android:id="@+id/entry163"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
+
+                <TextView
+                    android:id="@+id/entry17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
+
+                <TextView
+                    android:id="@+id/entry173"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/entry_drawable_blue"
+                    android:gravity="center"
+                    android:minWidth="120dp"
+                    android:padding="4dp"
+                    android:text="CS4457 \nCSG001" />
 
 
-        </TableLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
 
     </ScrollView>
 
