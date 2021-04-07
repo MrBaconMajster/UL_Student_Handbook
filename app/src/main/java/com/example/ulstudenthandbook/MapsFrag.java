@@ -19,12 +19,15 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsFrag extends Fragment{
+public class MapsFrag  extends Fragment{
+
+    String marker;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
                               ViewGroup container,
                               Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_maps, container, false);
 
         SupportMapFragment supportMapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.google_map);
@@ -32,6 +35,9 @@ public class MapsFrag extends Fragment{
         supportMapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap googleMap) {
+
+
+
                 //When map is loaded
                 LatLng mainBuildingMarker = new LatLng(52.673861309293834, -8.57192221735993);
                 LatLng libraryMarker = new LatLng(52.673342482233245, -8.573470562705015);
@@ -57,7 +63,7 @@ public class MapsFrag extends Fragment{
                 googleMap.addMarker(new MarkerOptions().position(csBuildingMarker).title("Computer Science(CS)"));
                 googleMap.addMarker(new MarkerOptions().position(kemmyBusinessMarker).title("Kemmy Business School(KB)"));
                 googleMap.addMarker(new MarkerOptions().position(schumannBuildingMarker).title("Schuman(S)"));
-                googleMap.addMarker(new MarkerOptions().position(leroBuildingMarker).title("Lero"));
+                googleMap.addMarker(new MarkerOptions().position(leroBuildingMarker).title("Tierney"));
                 googleMap.addMarker(new MarkerOptions().position(lonsdaleBuildingMarker).title("Lonsdale(L)"));
                 googleMap.addMarker(new MarkerOptions().position(analogDevicesBuildingMarker).title("Analog(AD)"));
                 googleMap.addMarker(new MarkerOptions().position(schrodingerBuildingMarker).title("Schrödinger(SR)"));
@@ -69,12 +75,91 @@ public class MapsFrag extends Fragment{
                 googleMap.addMarker(new MarkerOptions().position(irishWorldAcademy).title("Irish World Academy(IW)"));
 
                 googleMap.setMapType(2);
-                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(mainBuildingMarker, 18));
+
+
+                if(getArguments() != null) {
+                    System.out.println(getArguments().getString("marker"));
+
+                    marker = getArguments().getString("marker");
+
+                    if(marker  == "mainBuildingMarker")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(mainBuildingMarker, 18));
+                    }
+                    else if(marker  == "libraryMarker")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(libraryMarker, 18));
+                    }
+                    else if(marker  == "concertHallMarker")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(concertHallMarker, 18));
+                    }
+                    else if(marker  == "csBuildingMarker")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(csBuildingMarker, 18));
+                    }
+                    else if(marker  == "kemmyBusinessMarker")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(kemmyBusinessMarker, 18));
+                    }
+                    else if(marker  == "schumannBuildingMarker")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(schumannBuildingMarker, 18));
+                    }
+                    else if(marker  == "leroBuildingMarker")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(leroBuildingMarker, 18));
+                    }
+                    else if(marker  == "lonsdaleBuildingMarker")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(lonsdaleBuildingMarker, 18));
+                    }
+                    else if(marker  == "analogDevicesBuildingMarker")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(analogDevicesBuildingMarker, 18));
+                    }
+                    else if(marker  == "schrodingerBuildingMarker")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(schrodingerBuildingMarker, 18));
+                    }
+                    else if(marker  == "pessBuildingMarker")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pessBuildingMarker, 18));
+                    }
+                    else if(marker  == "engineeringBuildingMarker")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(engineeringBuildingMarker, 18));
+                    }
+                    else if(marker  == "languagesBuildingMarker")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(languagesBuildingMarker, 18));
+                    }
+                    else if(marker  == "healthScienceBuildingMarker")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(healthScienceBuildingMarker, 18));
+                    }
+                    else if(marker  == "schoolOfMedicineBuildingMarker")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(schoolOfMedicineBuildingMarker, 18));
+                    }
+                    else if(marker  == "irishWorldAcademy")
+                    {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(irishWorldAcademy, 18));
+                    }
+
+                }
+                else
+                {
+                    googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(mainBuildingMarker, 16));
+                }
+//
+//
+//
             }
+
         });
 
         return view;
     }
-
 
 }
