@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_timetableFrag_to_transitionFrag"
             app:destination="@id/transitionFrag" />
+        <action
+            android:id="@+id/action_timetableFrag_to_editTimetableFrag"
+            app:destination="@id/editTimetableFrag" />
     </fragment>
     <fragment
         android:id="@+id/mainBuildingMapFrag"
@@ -45,6 +48,9 @@
         <action
             android:id="@+id/action_addModuleFrag_to_transitionFrag"
             app:destination="@id/transitionFrag" />
+        <action
+            android:id="@+id/action_addModuleFrag_to_editTimetableFrag"
+            app:destination="@id/editTimetableFrag" />
     </fragment>
     <fragment
         android:id="@+id/transitionFrag"
@@ -82,5 +88,20 @@
             android:name="marker"
             app:argType="string"
             app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTimetableFrag"
+        android:name="com.example.ulstudenthandbook.EditTimetableFrag"
+        android:label="fragment_edit_timetable"
+        tools:layout="@layout/fragment_edit_timetable" >
+        <action
+            android:id="@+id/action_editTimetableFrag_to_timetableFrag"
+            app:destination="@id/timetableFrag" />
+        <action
+            android:id="@+id/action_editTimetableFrag_to_transitionFrag"
+            app:destination="@id/transitionFrag" />
+        <action
+            android:id="@+id/action_editTimetableFrag_to_addModuleFrag"
+            app:destination="@id/addModuleFrag" />
     </fragment>
 </navigation>

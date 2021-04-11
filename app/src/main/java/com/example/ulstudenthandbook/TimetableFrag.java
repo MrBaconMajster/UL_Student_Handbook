@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.os.Environment;
 import android.view.LayoutInflater;
@@ -52,6 +53,7 @@ public class TimetableFrag extends Fragment implements AdapterView.OnItemSelecte
     private String mParam2;
     private int dayDisplayed;
 
+    private TextView edittextButton;
     private TextView measureOfHeight;
     private TextView measureOfHeight2;
     private TextView dayIndicator;
@@ -124,6 +126,7 @@ public class TimetableFrag extends Fragment implements AdapterView.OnItemSelecte
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_timetable, container, false);
 
+        edittextButton = view.findViewById(R.id.edittextButton);
         measureOfHeight = view.findViewById(R.id.measureofheight);
         measureOfHeight2 = view.findViewById(R.id.measureofheight2);
         dayIndicator = view.findViewById(R.id.dayIndicator);
@@ -184,6 +187,13 @@ public class TimetableFrag extends Fragment implements AdapterView.OnItemSelecte
             }
         });
 
+        edittextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_timetableFrag_to_editTimetableFrag);
+            }
+        });
+
         //Displays current day
         Calendar calendar = Calendar.getInstance();
         String dayLongName = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.getDefault());
@@ -205,66 +215,65 @@ public class TimetableFrag extends Fragment implements AdapterView.OnItemSelecte
         timetableViewModeSpinner.setAdapter(adapterTimeStart);
         timetableViewModeSpinner.setOnItemSelectedListener(this);
 
-
         //Reads Timetable info from json
-        timetableInfo = ReadTimetableInfoFromFile("Example4.txt");
+        timetableInfo = ReadTimetableInfoFromFile("timetablePrototype.txt");
         ScreenText = view.findViewById(R.id.textView3);
 
 
         //Sample entries !!!TO BE DELETED LATER!!!
-        TimetableEntry entry = new TimetableEntry();
-        entry.timeStart = 900;
-        entry.timeEnd = 1100;
-        entry.building = "CS";
-        entry.roomNo = "G001";
-        entry.module = "CS4457";
-        entry.colour = "Purple";
+        //TimetableEntry entry = new TimetableEntry();
+        //entry.timeStart = 900;
+        //entry.timeEnd = 1100;
+        //entry.building = "CS";
+        //entry.roomNo = "G001";
+        //entry.module = "CS4457";
+        //entry.colour = "Purple";
+//
+        //timetableInfo.SundayEntries.add(entry);
+//
+        //TimetableEntry entry2 = new TimetableEntry();
+        //entry2.timeStart = 1500;
+        //entry2.timeEnd = 1650;
+        //entry2.building = "CS";
+        //entry2.roomNo = "G001";
+        //entry2.module = "CS4457";
+        //entry2.colour = "Green";
+//
+        //timetableInfo.SundayEntries.add(entry2);
+//
+        //TimetableEntry entry3 = new TimetableEntry();
+        //entry3.timeStart = 1200;
+        //entry3.timeEnd = 1300;
+        //entry3.building = "CS";
+        //entry3.roomNo = "G001";
+        //entry3.module = "CS4457";
+        //entry3.colour = "Purple";
+//
+        //timetableInfo.SaturdayEntries.add(entry3);
+//
+        //TimetableEntry entry4 = new TimetableEntry();
+        //entry4.timeStart = 900;
+        //entry4.timeEnd = 1000;
+        //entry4.building = "CS";
+        //entry4.roomNo = "G001";
+        //entry4.module = "CS4457";
+        //entry4.colour = "Blue";
+//
+        //timetableInfo.ThursdayEntries.add(entry4);
+//
+        //TimetableEntry entry5 = new TimetableEntry();
+        //entry5.timeStart = 1600;
+        //entry5.timeEnd = 1700;
+        //entry5.building = "CS";
+        //entry5.roomNo = "G001";
+        //entry5.module = "CS4457";
+        //entry5.colour = "Red";
 
-        timetableInfo.SundayEntries.add(entry);
+        //timetableInfo.FridayEntries.add(entry5);
 
-        TimetableEntry entry2 = new TimetableEntry();
-        entry2.timeStart = 1500;
-        entry2.timeEnd = 1650;
-        entry2.building = "CS";
-        entry2.roomNo = "G001";
-        entry2.module = "CS4457";
-        entry2.colour = "Green";
+        //saveTimetableInfoToJSON("timetablePrototype.txt"); //Save json
 
-        timetableInfo.SundayEntries.add(entry2);
-
-        TimetableEntry entry3 = new TimetableEntry();
-        entry3.timeStart = 1200;
-        entry3.timeEnd = 1300;
-        entry3.building = "CS";
-        entry3.roomNo = "G001";
-        entry3.module = "CS4457";
-        entry3.colour = "Purple";
-
-        timetableInfo.SaturdayEntries.add(entry3);
-
-        TimetableEntry entry4 = new TimetableEntry();
-        entry4.timeStart = 900;
-        entry4.timeEnd = 1000;
-        entry4.building = "CS";
-        entry4.roomNo = "G001";
-        entry4.module = "CS4457";
-        entry4.colour = "Blue";
-
-        timetableInfo.ThursdayEntries.add(entry4);
-
-        TimetableEntry entry5 = new TimetableEntry();
-        entry5.timeStart = 1600;
-        entry5.timeEnd = 1700;
-        entry5.building = "CS";
-        entry5.roomNo = "G001";
-        entry5.module = "CS4457";
-        entry5.colour = "Red";
-
-        timetableInfo.FridayEntries.add(entry5);
-
-        saveTimetableInfoToJSON("Example3.txt"); //Save json
-
-        // TimetableInfo timetableInfo = ReadTimetableInfoFromFile("Example3.txt");  //Read JSON
+        TimetableInfo timetableInfo = ReadTimetableInfoFromFile("timetablePrototype.txt");  //Read JSON
 
         updateTimetable(dayDisplayed);
 
@@ -337,7 +346,7 @@ public class TimetableFrag extends Fragment implements AdapterView.OnItemSelecte
     {
         int startingTime = e.timeStart;
         TextView entrySlot = findEntryWithTime(startingTime);
-        entrySlot.setText( e.module + "\n" + e.building + e.roomNo);
+        entrySlot.setText( e.module + "\n" + e.roomNo);
         int slotsTaken = calculateSlotsTaken(e);
         int indexOfE = textViewArray.indexOf(entrySlot);
         entrySlot.getLayoutParams().height = entryDefaultHeight*slotsTaken;
@@ -514,7 +523,11 @@ public class TimetableFrag extends Fragment implements AdapterView.OnItemSelecte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+        TextView selectedText = (TextView) view;
+        if(selectedText != null)
+        {
+            selectedText.setTextColor(Color.WHITE);
+        }
     }
 
     @Override

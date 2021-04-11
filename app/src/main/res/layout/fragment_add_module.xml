@@ -8,173 +8,199 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/roomText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="452dp"
-        android:text="Room:"
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:background="#00432B"
+        android:gravity="center"
+        android:text="Add Entry"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/blockText"
+        android:id="@+id/roomText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="272dp"
-        android:layout_marginTop="344dp"
-        android:text="Block:"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="40dp"
+        android:text="Room Code:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/colorText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="224dp"
-        android:layout_marginTop="456dp"
-        android:text="Color:"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:text="Display Color:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout5" />
 
-    <Spinner
-        android:id="@+id/block"
-        android:layout_width="100dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="272dp"
-        android:layout_marginTop="360dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
+    <FrameLayout
+        android:id="@+id/frameLayout6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/whiterectborder"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/colorText">
 
-    <Spinner
-        android:id="@+id/color"
-        android:layout_width="157dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="224dp"
-        android:layout_marginTop="476dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Spinner
+            android:id="@+id/color"
+            android:layout_width="157dp"
+            android:layout_height="50dp"
+            android:padding="4dp"
+            android:spinnerMode="dropdown" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/buildingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="346dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:text="Building:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
 
-    <Spinner
-        android:id="@+id/building"
-        android:layout_width="226dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="360dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
+    <FrameLayout
+        android:id="@+id/frameLayout5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/whiterectborder"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/buildingText">
 
-    <Spinner
-        android:id="@+id/timeEnd"
-        android:layout_width="157dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginTop="252dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Spinner
+            android:id="@+id/building"
+            android:layout_width="226dp"
+            android:layout_height="50dp"
+            android:padding="4dp"
+            android:spinnerMode="dropdown" />
 
-    <Spinner
-        android:id="@+id/timeStart"
-        android:layout_width="157dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="252dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/whiterectborder"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/timeEndText">
+
+        <Spinner
+            android:id="@+id/timeEnd"
+            android:layout_width="157dp"
+            android:padding="4dp"
+            android:layout_height="50dp"
+            android:spinnerMode="dropdown" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/whiterectborder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeStartText">
+
+        <Spinner
+            android:id="@+id/timeStart"
+            android:layout_width="157dp"
+            android:layout_height="50dp"
+            android:spinnerMode="dropdown"
+            android:padding="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/timeStartText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:text="Time Start:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/module" />
 
     <TextView
         android:id="@+id/moduleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="140dp"
-        android:text="Module:"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:text="Module Code:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/timeEndText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="216dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="30dp"
         android:text="Time End:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/room" />
 
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="588dp"
-        android:text="Add"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/module"
         android:layout_width="150dp"
+        android:padding="4dp"
         android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/whiterectborder"
         android:ems="10"
+        android:hint="eg. CS4084"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/moduleText" />
 
     <EditText
         android:id="@+id/room"
         android:layout_width="150dp"
         android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="476dp"
+        android:layout_marginStart="200dp"
+        android:padding="4dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/whiterectborder"
         android:ems="10"
+        android:hint="eg. CSG001"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/roomText" />
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Add Module"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/errorText"
+        android:layout_width="339dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="25dp"
+        android:textColor="@color/Red"
+        app:layout_constraintBottom_toTopOf="@+id/submit"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

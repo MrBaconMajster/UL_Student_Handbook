@@ -34,25 +34,38 @@
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/whiterectborder"
+        android:layout_marginTop="164dp"
+        app:layout_constraintEnd_toEndOf="parent">
     <Spinner
         android:id="@+id/buildingName"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.171"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:padding="4dp"
+        android:layout_height="wrap_content" />
+    </FrameLayout>
 
-    <Spinner
-        android:id="@+id/buildingCode"
-        android:layout_width="200dp"
+    <FrameLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="252dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/whiterectborder">
+    <Spinner
+        android:id="@+id/buildingCode"
+        android:layout_width="200dp"
+        android:padding="4dp"
+        android:layout_height="wrap_content"/>
+    </FrameLayout>
+
 
     <TextView
         android:id="@+id/buildingNameText"

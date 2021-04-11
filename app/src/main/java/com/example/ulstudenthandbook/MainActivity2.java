@@ -28,6 +28,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class MainActivity2 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -36,6 +44,7 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
     Toolbar toolbar;
     NavigationView navigationView;
     View navHostFragment;
+    TimetableInfo timetableInfo;
 
 
     private void setNavigationViewListener() {
@@ -61,6 +70,11 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
         actionBarDrawerToggle.syncState();
+
+        timetableInfo = new TimetableInfo();
+
+        timetableInfo = ReadTimetableInfoFromFile("timetablePrototype.txt");
+        saveTimetableInfoToJSON("timetablePrototype.txt");
 
     }
 
@@ -92,6 +106,14 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
         {
             Navigation.findNavController(navHostFragment).navigate(R.id.action_buildingFrag_to_transitionFrag);
         }
+        else if (currentFragmentName.equals("fragment_edit_timetable"))
+        {
+            Navigation.findNavController(navHostFragment).navigate(R.id.action_editTimetableFrag_to_transitionFrag);
+        }
+        else if (currentFragmentName.equals("fragment_add_module"))
+        {
+            Navigation.findNavController(navHostFragment).navigate(R.id.action_addModuleFrag_to_transitionFrag);
+        }
 
         // Goes from transition fragment to the selected fragment
 
@@ -122,6 +144,47 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void saveTimetableInfoToJSON(String filename) {
+        String TimetableInformationJSONString = new Gson().toJson(timetableInfo);
+
+        //Write JSON file
+        FileOutputStream outputStream;
+
+        try {
+            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            outputStream.write(TimetableInformationJSONString.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private TimetableInfo ReadTimetableInfoFromFile(String filename) {
+        TimetableInfo t = new TimetableInfo();
+        FileInputStream fis = null;
+        try {
+            fis = openFileInput(filename);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader bufferedReader = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                sb.append(line);
+            }
+
+            String json = sb.toString();
+            Gson gson = new Gson();
+            t = gson.fromJson(json, TimetableInfo.class);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return t;
     }
 
 }
