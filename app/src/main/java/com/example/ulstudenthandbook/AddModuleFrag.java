@@ -241,7 +241,9 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
         selectedDayEntryArrayList.add(entryToAdd);
         Collections.sort(selectedDayEntryArrayList);
         saveTimetableInfoToJSON("timetablePrototype.txt");
-        Navigation.findNavController(getView()).navigate(R.id.action_addModuleFrag_to_editTimetableFrag);
+        Bundle bundle = new Bundle();
+        bundle.putString("Day", day);
+        Navigation.findNavController(getView()).navigate(R.id.action_addModuleFrag_to_editTimetableFrag, bundle);
     }
 
     private boolean checkTimeAvailability(TimetableEntry entryToAdd) {

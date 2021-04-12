@@ -120,9 +120,15 @@ public class EditTimetableFrag extends Fragment implements AdapterView.OnItemSel
         daySpinner.setOnItemSelectedListener(this);
         daySpinner.setSelection(0);
 
-        day = "Monday";
-        displayEntries("Monday");
-
+        if (getArguments() == null) {
+            day = "Monday";
+            displayEntries(day);
+        }
+        else
+        {
+            day = getArguments().getString("Day");
+            daySpinner.setSelection(dayStringtoSpinnerPos(day));
+        }
         return view;
     }
 
@@ -185,18 +191,25 @@ public class EditTimetableFrag extends Fragment implements AdapterView.OnItemSel
 
             if (position == 0) {
                 displayEntries("Monday");
+                day = "Monday";
             } else if (position == 1) {
                 displayEntries("Tuesday");
+                day = "Tuesday";
             } else if (position == 2) {
                 displayEntries("Wednesday");
+                day = "Wednesday";
             } else if (position == 3) {
                 displayEntries("Thursday");
+                day = "Thursday";
             } else if (position == 4) {
                 displayEntries("Friday");
+                day = "Friday";
             } else if (position == 5) {
                 displayEntries("Saturday");
+                day = "Saturday";
             } else if (position == 6) {
                 displayEntries("Sunday");
+                day = "Sunday";
             }
     }
 
@@ -469,7 +482,41 @@ public class EditTimetableFrag extends Fragment implements AdapterView.OnItemSel
             s = "18:00";
         }
 
-
         return s;
+    }
+
+    private int dayStringtoSpinnerPos(String day)
+    {
+        int position = 0;
+        if (day.equals("Monday"))
+        {
+            position = 0;
+        }
+        else if (day.equals("Tuesday"))
+        {
+            position = 1;
+        }
+        else if (day.equals("Wednesday"))
+        {
+            position = 2;
+        }
+        else if (day.equals("Thursday"))
+        {
+            position = 3;
+        }
+        else if (day.equals("Friday"))
+        {
+            position = 4;
+        }
+        else if (day.equals("Saturday"))
+        {
+            position = 5;
+        }
+        else if (day.equals("Sunday"))
+        {
+            position = 6;
+        }
+
+        return position;
     }
 }

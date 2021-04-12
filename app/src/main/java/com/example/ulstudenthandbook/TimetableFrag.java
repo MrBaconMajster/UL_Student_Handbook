@@ -201,7 +201,6 @@ public class TimetableFrag extends Fragment implements AdapterView.OnItemSelecte
         dayDisplayed = calendar.get(Calendar.DAY_OF_WEEK);
         dayIndicator.setText(dayLongName);
 
-
         // Sets spinner button
         final String[] modeArray = {"Day", "Week"};
         timetableViewModeSpinner = view.findViewById(R.id.TimetableViewModeSpinner);
@@ -219,61 +218,8 @@ public class TimetableFrag extends Fragment implements AdapterView.OnItemSelecte
         timetableInfo = ReadTimetableInfoFromFile("timetablePrototype.txt");
         ScreenText = view.findViewById(R.id.textView3);
 
-
-        //Sample entries !!!TO BE DELETED LATER!!!
-        //TimetableEntry entry = new TimetableEntry();
-        //entry.timeStart = 900;
-        //entry.timeEnd = 1100;
-        //entry.building = "CS";
-        //entry.roomNo = "G001";
-        //entry.module = "CS4457";
-        //entry.colour = "Purple";
-//
-        //timetableInfo.SundayEntries.add(entry);
-//
-        //TimetableEntry entry2 = new TimetableEntry();
-        //entry2.timeStart = 1500;
-        //entry2.timeEnd = 1650;
-        //entry2.building = "CS";
-        //entry2.roomNo = "G001";
-        //entry2.module = "CS4457";
-        //entry2.colour = "Green";
-//
-        //timetableInfo.SundayEntries.add(entry2);
-//
-        //TimetableEntry entry3 = new TimetableEntry();
-        //entry3.timeStart = 1200;
-        //entry3.timeEnd = 1300;
-        //entry3.building = "CS";
-        //entry3.roomNo = "G001";
-        //entry3.module = "CS4457";
-        //entry3.colour = "Purple";
-//
-        //timetableInfo.SaturdayEntries.add(entry3);
-//
-        //TimetableEntry entry4 = new TimetableEntry();
-        //entry4.timeStart = 900;
-        //entry4.timeEnd = 1000;
-        //entry4.building = "CS";
-        //entry4.roomNo = "G001";
-        //entry4.module = "CS4457";
-        //entry4.colour = "Blue";
-//
-        //timetableInfo.ThursdayEntries.add(entry4);
-//
-        //TimetableEntry entry5 = new TimetableEntry();
-        //entry5.timeStart = 1600;
-        //entry5.timeEnd = 1700;
-        //entry5.building = "CS";
-        //entry5.roomNo = "G001";
-        //entry5.module = "CS4457";
-        //entry5.colour = "Red";
-
-        //timetableInfo.FridayEntries.add(entry5);
-
-        //saveTimetableInfoToJSON("timetablePrototype.txt"); //Save json
-
-        TimetableInfo timetableInfo = ReadTimetableInfoFromFile("timetablePrototype.txt");  //Read JSON
+        saveTimetableInfoToJSON("timetablePrototype.txt"); //Save json
+        timetableInfo = ReadTimetableInfoFromFile("timetablePrototype.txt");
 
         updateTimetable(dayDisplayed);
 
@@ -527,6 +473,7 @@ public class TimetableFrag extends Fragment implements AdapterView.OnItemSelecte
         if(selectedText != null)
         {
             selectedText.setTextColor(Color.WHITE);
+            updateTimetable(dayDisplayed);
         }
     }
 
@@ -534,6 +481,7 @@ public class TimetableFrag extends Fragment implements AdapterView.OnItemSelecte
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
 
     private void changeDay(String direction)
     {
