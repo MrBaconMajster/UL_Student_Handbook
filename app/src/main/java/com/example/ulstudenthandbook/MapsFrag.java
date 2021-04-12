@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +17,13 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
 
 public class MapsFrag  extends Fragment{
 
@@ -39,6 +45,7 @@ public class MapsFrag  extends Fragment{
 
 
                 //When map is loaded
+                //Buildings
                 LatLng mainBuildingMarker = new LatLng(52.673861309293834, -8.57192221735993);
                 LatLng libraryMarker = new LatLng(52.673342482233245, -8.573470562705015);
                 LatLng concertHallMarker = new LatLng(52.674367089655384, -8.573400825257732);
@@ -56,23 +63,79 @@ public class MapsFrag  extends Fragment{
                 LatLng schoolOfMedicineBuildingMarker = new LatLng(52.67834171505514, -8.568195335353717);
                 LatLng irishWorldAcademy = new LatLng(52.67819532839715, -8.569706030546842);
 
+                //Parking
+                LatLng parkingPaid1 = new LatLng(52.67260599309352, -8.569047354229467);
+                LatLng parkingPaid2 = new LatLng(52.67265649302877, -8.564941267893385);
+                LatLng parkingPaid3 = new LatLng(52.67482238126959, -8.575756393633233);
 
-                googleMap.addMarker(new MarkerOptions().position(mainBuildingMarker).title("Main Building(A,B,C,D,E)"));
-                googleMap.addMarker(new MarkerOptions().position(libraryMarker).title("Glucksman Library(GL)"));
-                googleMap.addMarker(new MarkerOptions().position(concertHallMarker).title("Foundation(F)"));
-                googleMap.addMarker(new MarkerOptions().position(csBuildingMarker).title("Computer Science(CS)"));
-                googleMap.addMarker(new MarkerOptions().position(kemmyBusinessMarker).title("Kemmy Business School(KB)"));
-                googleMap.addMarker(new MarkerOptions().position(schumannBuildingMarker).title("Schuman(S)"));
-                googleMap.addMarker(new MarkerOptions().position(leroBuildingMarker).title("Tierney"));
-                googleMap.addMarker(new MarkerOptions().position(lonsdaleBuildingMarker).title("Lonsdale(L)"));
-                googleMap.addMarker(new MarkerOptions().position(analogDevicesBuildingMarker).title("Analog(AD)"));
-                googleMap.addMarker(new MarkerOptions().position(schrodingerBuildingMarker).title("Schrödinger(SR)"));
-                googleMap.addMarker(new MarkerOptions().position(pessBuildingMarker).title("PESS(P)"));
-                googleMap.addMarker(new MarkerOptions().position(engineeringBuildingMarker).title("Engineering Research(ER)"));
-                googleMap.addMarker(new MarkerOptions().position(languagesBuildingMarker).title("Languages(LC)"));
-                googleMap.addMarker(new MarkerOptions().position(healthScienceBuildingMarker).title("Health Sciences(HS)"));
-                googleMap.addMarker(new MarkerOptions().position(schoolOfMedicineBuildingMarker).title("Medical School(GEMS)"));
-                googleMap.addMarker(new MarkerOptions().position(irishWorldAcademy).title("Irish World Academy(IW)"));
+
+                LatLng parkingFree1 = new LatLng(52.671729224196284, -8.565649482299666);
+                LatLng parkingFree2 = new LatLng(52.67455039763344, -8.572393224158875);
+                LatLng parkingFree3 = new LatLng(52.674777992897994, -8.57924902777863);
+                LatLng parkingFree4 = new LatLng(52.67315044979818, -8.578639857305841);
+                LatLng parkingFree5 = new LatLng(52.680020402028184, -8.569479487570957);
+                LatLng parkingFree6 = new LatLng(52.68080964259418, -8.568886032457556);
+                LatLng parkingFree7 = new LatLng(52.68050348785219, -8.570974278677058);
+
+
+                LatLng parkingStaff1 = new LatLng(52.672923284470556, -8.56764896906389);
+                LatLng parkingStaff2 = new LatLng(52.67374942188429, -8.56643926885988);
+                LatLng parkingStaff3 = new LatLng(52.67331178628309, -8.567345963737981);
+                LatLng parkingStaff4 = new LatLng(52.67515333215915, -8.574204637197049);
+                LatLng parkingStaff5 = new LatLng(52.67476832270112, -8.578607897681858);
+                LatLng parkingStaff6 = new LatLng(52.67332609926109, -8.578409187335653);
+                LatLng parkingStaff7 = new LatLng(52.67229496174581, -8.576837412867256);
+                LatLng parkingStaff8 = new LatLng(52.68067968376338, -8.57604644847448);
+                LatLng parkingStaff9 = new LatLng(52.67969504716686, -8.56997276643686);
+                LatLng parkingStaff10 = new LatLng(52.679478250452064, -8.567768963344285);
+                LatLng parkingStaff11 = new LatLng(52.674098289446, -8.5774882806745);
+
+
+
+                ArrayList<Marker> buildingArray = new ArrayList<>();
+                ArrayList<Marker> parkingArray = new ArrayList<>();
+
+                // Buildings
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(mainBuildingMarker).title("Main Building(A,B,C,D,E)")));
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(libraryMarker).title("Glucksman Library(GL)")));
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(concertHallMarker).title("Foundation(F)")));
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(csBuildingMarker).title("Computer Science(CS)")));
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(kemmyBusinessMarker).title("Kemmy Business School(KB)")));
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(schumannBuildingMarker).title("Schuman(S)")));
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(leroBuildingMarker).title("Tierney")));
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(lonsdaleBuildingMarker).title("Lonsdale(L)")));
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(analogDevicesBuildingMarker).title("Analog(AD)")));
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(schrodingerBuildingMarker).title("Schrödinger(SR)")));
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(pessBuildingMarker).title("PESS(P)")));
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(engineeringBuildingMarker).title("Engineering Research(ER)")));
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(languagesBuildingMarker).title("Languages(LC)")));
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(healthScienceBuildingMarker).title("Health Sciences(HS)")));
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(schoolOfMedicineBuildingMarker).title("Medical School(GEMS)")));
+                buildingArray.add(googleMap.addMarker(new MarkerOptions().position(irishWorldAcademy).title("Irish World Academy(IW)")));
+
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingPaid1).title("Paid Public Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("orange_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingPaid2).title("Paid Public Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("orange_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingPaid3).title("Paid Public Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("orange_parking_transparent",75, 100)))));
+
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingFree1).title("Free Public Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("blue_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingFree2).title("Free Public Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("blue_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingFree3).title("Free Public Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("blue_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingFree4).title("Free Public Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("blue_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingFree5).title("Free Public Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("blue_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingFree6).title("Free Public Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("blue_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingFree7).title("Free Public Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("blue_parking_transparent",75, 100)))));
+
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingStaff1).title("Staff Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("red_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingStaff2).title("Staff Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("red_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingStaff3).title("Staff Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("red_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingStaff4).title("Staff Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("red_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingStaff5).title("Staff Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("red_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingStaff6).title("Staff Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("red_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingStaff7).title("Staff Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("red_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingStaff8).title("Staff Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("red_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingStaff9).title("Staff Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("red_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingStaff10).title("Staff Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("red_parking_transparent",75, 100)))));
+                parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingStaff11).title("Staff Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("red_parking_transparent",75, 100)))));
 
                 googleMap.setMapType(2);
 
@@ -160,6 +223,11 @@ public class MapsFrag  extends Fragment{
         });
 
         return view;
+    }
+
+    public Bitmap resizeBitmap(String drawableName,int width, int height){
+        Bitmap imageBitmap = BitmapFactory.decodeResource(getResources(),getResources().getIdentifier(drawableName, "drawable", getActivity().getPackageName()));
+        return Bitmap.createScaledBitmap(imageBitmap, width, height, false);
     }
 
 }
