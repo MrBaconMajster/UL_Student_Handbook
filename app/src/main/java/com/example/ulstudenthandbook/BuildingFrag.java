@@ -29,6 +29,7 @@ public class BuildingFrag extends Fragment implements AdapterView.OnItemSelected
     private Spinner buildingName,buildingCode;
     private Button button;
 
+
     Bundle bundle = new Bundle();
 
 
@@ -129,6 +130,10 @@ public class BuildingFrag extends Fragment implements AdapterView.OnItemSelected
         }else if(parent == buildingCode){
             buildingName.setSelection(position);
         }
+        if(position == 0)
+        {
+            image.setImageResource(R.drawable.book);
+        }
         if(position == 1)
         {
             image.setImageResource(R.drawable.analog);
@@ -196,7 +201,10 @@ public class BuildingFrag extends Fragment implements AdapterView.OnItemSelected
         }
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_buildingFrag_to_mapsFrag, bundle);
+                if (position != 0)
+                {
+                    Navigation.findNavController(view).navigate(R.id.action_buildingFrag_to_mapsFrag, bundle);
+                }
             }
         });
     }
