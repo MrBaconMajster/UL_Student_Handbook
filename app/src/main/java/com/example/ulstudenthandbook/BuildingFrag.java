@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -204,6 +205,8 @@ public class BuildingFrag extends Fragment implements AdapterView.OnItemSelected
                 if (position != 0)
                 {
                     Navigation.findNavController(view).navigate(R.id.action_buildingFrag_to_mapsFrag, bundle);
+                }else{
+                    Toast.makeText(getView().getContext(),"Error: No Building Selected",Toast.LENGTH_SHORT).show();
                 }
             }
         });
