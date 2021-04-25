@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +29,7 @@ public class BuildingFrag extends Fragment implements AdapterView.OnItemSelected
     private ImageView image;
     private Spinner buildingName,buildingCode;
     private Button button;
+
 
     Bundle bundle = new Bundle();
 
@@ -92,6 +94,10 @@ public class BuildingFrag extends Fragment implements AdapterView.OnItemSelected
 
         }else if(parent == buildingCode){
             buildingName.setSelection(position);
+        }
+        if(position == 0)
+        {
+            image.setImageResource(R.drawable.book);
         }
         if(position == 1)
         {
@@ -160,7 +166,12 @@ public class BuildingFrag extends Fragment implements AdapterView.OnItemSelected
         }
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_buildingFrag_to_mapsFrag, bundle);
+                if (position != 0)
+                {
+                    Navigation.findNavController(view).navigate(R.id.action_buildingFrag_to_mapsFrag, bundle);
+                }else{
+                    Toast.makeText(getView().getContext(),"Error: No Building Selected",Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
