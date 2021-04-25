@@ -14,7 +14,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="20dp"
         android:text="Find Building"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -25,45 +25,50 @@
 
     <ImageView
         android:id="@+id/buildingImage"
-        android:layout_width="389dp"
-        android:layout_height="377dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:src="@drawable/book"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <FrameLayout
+        android:id="@+id/frameLayout7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_bias="0.171"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/whiterectborder"
-        android:layout_marginTop="164dp"
-        app:layout_constraintEnd_toEndOf="parent">
-    <Spinner
-        android:id="@+id/buildingName"
-        android:layout_width="300dp"
-        android:padding="4dp"
-        android:layout_height="wrap_content" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buildingNameText">
+
+        <Spinner
+            android:id="@+id/buildingName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:padding="4dp" />
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/frameLayout8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="252dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/whiterectborder"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/whiterectborder">
-    <Spinner
-        android:id="@+id/buildingCode"
-        android:layout_width="200dp"
-        android:padding="4dp"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintTop_toBottomOf="@+id/buildingCodeText">
+
+        <Spinner
+            android:id="@+id/buildingCode"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:padding="4dp" />
     </FrameLayout>
 
 
@@ -72,30 +77,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="25dp"
         android:text="Building Name:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <TextView
         android:id="@+id/buildingCodeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="40dp"
         android:text="Building Code:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout7" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="236dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="58dp"
         android:text="Find on Map"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.804"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/frameLayout8"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

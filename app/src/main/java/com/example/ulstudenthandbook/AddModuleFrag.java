@@ -58,46 +58,17 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
 
     private static final String[] colorArray ={"","Red","Blue","Green","Orange","Pink","Black","Purple"};
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public AddModuleFrag() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AddModuleFrag.
-     */
-    // TODO: Rename and change types and number of parameters
     public static AddModuleFrag newInstance(String param1, String param2) {
         AddModuleFrag fragment = new AddModuleFrag();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -159,11 +130,12 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
         spinnerColor.setAdapter(adapterColor);
         spinnerColor.setOnItemSelectedListener(this);
 
-        timetableInfo = ReadTimetableInfoFromFile("timetablePrototype.txt");
+        timetableInfo = ReadTimetableInfoFromFile("timetablePrototype2.txt");
 
 
         if(getArguments()!= null)
         {
+            //timetable information passed on from previous fragment
             day = getArguments().getString("Day");
             module = getArguments().getString("module");
             timeStart = getArguments().getString("timeStart");
@@ -197,6 +169,7 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
         return view;
     }
 
+    //Saves entry inside the TimetableInfo object.
     private void saveEntry() {
         entryToAdd.module = textModule.getText().toString();
         entryToAdd.roomNo = textRoom.getText().toString();
@@ -240,16 +213,18 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
         selectedDayEntryArrayList.remove(entryToAdd);
         selectedDayEntryArrayList.add(entryToAdd);
         Collections.sort(selectedDayEntryArrayList);
-        saveTimetableInfoToJSON("timetablePrototype.txt");
+        saveTimetableInfoToJSON("timetablePrototype2.txt");
         Bundle bundle = new Bundle();
         bundle.putString("Day", day);
         Navigation.findNavController(getView()).navigate(R.id.action_addModuleFrag_to_editTimetableFrag, bundle);
     }
 
+    //Checks if the time conflicts with another entry for that day
     private boolean checkTimeAvailability(TimetableEntry entryToAdd) {
 
         ArrayList<TimetableEntry> ArraylistClone = (ArrayList)selectedDayEntryArrayList.clone();
 
+        //If a user is editing we check the entries without the edited entry in it as it would always result in a a conflict
         if (editMode == true)
         {
             for (int i = 0 ; i < ArraylistClone.size(); i ++)
@@ -275,7 +250,7 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
         if (editMode == true)
         {
             for (TimetableEntry e : ArraylistClone) {
-                //x1 <= y2 && y1 <= x2
+                //x1 <= y2 && y1 <= x2 . If this equation is satisfied no entries conflict with the entry we want to add
                 if (e.timeStart < entryToAdd.timeEnd && entryToAdd.timeStart < e.timeEnd) {
                     TextView errorText = (TextView) spinnerTimeEnd.getSelectedView();
                     errorText.setError("");
@@ -288,7 +263,7 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
         }
         else {
             for (TimetableEntry e : selectedDayEntryArrayList) {
-                //x1 <= y2 && y1 <= x2
+                //x1 <= y2 && y1 <= x2. If this equation is satisfied no entries conflict with the entry we want to add
                 if (e.timeStart < entryToAdd.timeEnd && entryToAdd.timeStart < e.timeEnd) {
                     TextView errorText = (TextView) spinnerTimeEnd.getSelectedView();
                     errorText.setError("");
@@ -303,6 +278,7 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
         return true;
     }
 
+    //If a user is editing an existing entry, this populates the fields with the current information
     private void prepareFields() {
         textModule.setText(module);
         textRoom.setText(roomNo);
@@ -385,7 +361,6 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
     }
 
     private int setSpinnerWithColour(String colour) {
-        //  private static final String[] colorArray ={"","Red","Blue","Green","Orange","Pink","Black","Purple"};
         int position = 0;
         if (colour.equals("Red"))
         {
@@ -420,6 +395,7 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
     }
 
     private ArrayList<TimetableEntry> selectDayEntries(String day) {
+
         if (day.equals("Monday"))
         {
             return timetableInfo.MondayEntries;
@@ -452,7 +428,6 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
         return new ArrayList<TimetableEntry>();
     }
 
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
 
@@ -475,14 +450,11 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
 
     }
 
-
-
-
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        // TODO Auto-generated method stub
     }
 
+    //Saves timetableInfo information inside a file on the phone
     private void saveTimetableInfoToJSON(String filename) {
         String TimetableInformationJSONString = new Gson().toJson(timetableInfo);
 
@@ -498,6 +470,7 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
         }
     }
 
+    //Reads timetableInfo information from inside a file on the phone
     private TimetableInfo ReadTimetableInfoFromFile(String filename) {
         TimetableInfo t = new TimetableInfo();
         FileInputStream fis = null;
@@ -689,6 +662,5 @@ public class AddModuleFrag extends Fragment implements AdapterView.OnItemSelecte
 
         return timeinInt;
     }
-
 
 }

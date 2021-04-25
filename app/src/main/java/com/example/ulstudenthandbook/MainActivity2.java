@@ -46,7 +46,6 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
     View navHostFragment;
     TimetableInfo timetableInfo;
 
-
     private void setNavigationViewListener() {
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(this);
@@ -65,7 +64,7 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
         setNavigationViewListener();
         setSupportActionBar(toolbar);
 
-
+        //Creates the button to trigger DrawerLayout
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
@@ -73,9 +72,9 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
 
         timetableInfo = new TimetableInfo();
 
+        //Initialises timetableInfo.
         timetableInfo = ReadTimetableInfoFromFile("timetablePrototype.txt");
         saveTimetableInfoToJSON("timetablePrototype.txt");
-
     }
 
     @Override

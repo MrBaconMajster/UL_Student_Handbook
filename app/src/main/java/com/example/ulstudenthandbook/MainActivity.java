@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
     ProgressBar progressBar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
     public void SignupPressed(View view) {
         startActivity(new Intent(getApplicationContext(), SignUp.class));

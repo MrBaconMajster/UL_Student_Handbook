@@ -62,7 +62,7 @@
         android:drawableLeft="@drawable/password_icon"
         android:ems="10"
         android:hint="Re-enter Password"
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         android:text=""
         android:textColor="@color/white"
         android:textColorHint="#FAA3A3A3"

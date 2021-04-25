@@ -26,6 +26,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.Time;
 import java.util.ArrayList;
 
 /**
@@ -35,35 +36,13 @@ import java.util.ArrayList;
  */
 public class EditTimetableFrag extends Fragment implements AdapterView.OnItemSelectedListener{
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-
-
     public EditTimetableFrag() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment EditTimetableFrag.
-     */
-    // TODO: Rename and change types and number of parameters
     public static EditTimetableFrag newInstance(String param1, String param2) {
         EditTimetableFrag fragment = new EditTimetableFrag();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -76,15 +55,6 @@ public class EditTimetableFrag extends Fragment implements AdapterView.OnItemSel
     Spinner daySpinner;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -93,6 +63,7 @@ public class EditTimetableFrag extends Fragment implements AdapterView.OnItemSel
         entryCol = view.findViewById(R.id.entriesColumn);
         deleteCol = view.findViewById(R.id.deleteColumn);
         addEntryBtn = view.findViewById(R.id.addEntryButton);
+
 
         addEntryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +74,8 @@ public class EditTimetableFrag extends Fragment implements AdapterView.OnItemSel
             }
         });
 
-        timetableInfo = ReadTimetableInfoFromFile("timetablePrototype.txt");
+        //Initialise timetableInfo
+        timetableInfo = ReadTimetableInfoFromFile("timetablePrototype2.txt");
 
         // Sets spinner button
         final String[] modeArray = {"Monday", "Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
@@ -132,10 +104,11 @@ public class EditTimetableFrag extends Fragment implements AdapterView.OnItemSel
         return view;
     }
 
+    //Displays all entries as TextViews inside a linear layout
     private void displayEntries(String day) {
         entryCol.removeAllViews();
         deleteCol.removeAllViews();
-        timetableInfo = ReadTimetableInfoFromFile("timetablePrototype.txt");
+        timetableInfo = ReadTimetableInfoFromFile("timetablePrototype2.txt");
 
         if (day.equals("Monday"))
         {
@@ -259,6 +232,7 @@ public class EditTimetableFrag extends Fragment implements AdapterView.OnItemSel
         }
     }
 
+    //Responsible for adding textView to linear layouts
     private void addEntryToColumn(TimetableEntry e)
     {
         TextView tv = new TextView(getActivity());
@@ -271,6 +245,7 @@ public class EditTimetableFrag extends Fragment implements AdapterView.OnItemSel
         layoutParams.setMargins(6,6,6,6);
         tv.setLayoutParams(layoutParams);
 
+        //Makes a listener to each entry textview that makes it possible to click each entry to edit it
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -310,12 +285,13 @@ public class EditTimetableFrag extends Fragment implements AdapterView.OnItemSel
         layoutParams2.setMargins(6,6,6,6);
         deleteBtn.setLayoutParams(layoutParams2);
 
+        //Makes a listener to each delete textview that makes it possible to click each entry to edit it
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //change to delete entry
                 getEntryListOfDay(day).remove(e);
-                saveTimetableInfoToJSON("timetablePrototype.txt");
+                saveTimetableInfoToJSON("timetablePrototype2.txt");
                 displayEntries(day);
 
             }

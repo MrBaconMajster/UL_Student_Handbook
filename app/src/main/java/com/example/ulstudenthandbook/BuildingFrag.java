@@ -40,45 +40,15 @@ public class BuildingFrag extends Fragment implements AdapterView.OnItemSelected
             "F","GL","HS","IW","KB",
             "LC","L","A,B,C,D,E","GEMS","P","SR","S"};
 
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     public BuildingFrag() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BuildingFrag.
-     */
-    // TODO: Rename and change types and number of parameters
     public static BuildingFrag newInstance(String param1, String param2) {
         BuildingFrag fragment = new BuildingFrag();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -105,19 +75,13 @@ public class BuildingFrag extends Fragment implements AdapterView.OnItemSelected
         buildingCode.setAdapter(adapterBuildingCode);
         buildingCode.setOnItemSelectedListener(this);
 
-
         //Image
         image = (ImageView) view.findViewById(R.id.buildingImage);
         ImageView buildingImage = (ImageView) view.findViewById(R.id.buildingImage);
         buildingImage.setImageResource(R.drawable.book);
 
-
         //Button
         button = view.findViewById(R.id.button);
-
-
-
-
         return view;
     }
 
@@ -203,7 +167,6 @@ public class BuildingFrag extends Fragment implements AdapterView.OnItemSelected
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
     }
 
 

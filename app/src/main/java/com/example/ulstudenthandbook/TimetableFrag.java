@@ -43,14 +43,6 @@ import java.util.Locale;
  */
 public class TimetableFrag extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2-";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     private int dayDisplayed;
 
     private TextView edittextButton;
@@ -91,33 +83,11 @@ public class TimetableFrag extends Fragment implements AdapterView.OnItemSelecte
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TimetableFrag.
-     */
-    // TODO: Rename and change types and number of parameters
     public static TimetableFrag newInstance(String param1, String param2) {
         TimetableFrag fragment = new TimetableFrag();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-
-
     }
 
     @Override
@@ -215,17 +185,18 @@ public class TimetableFrag extends Fragment implements AdapterView.OnItemSelecte
         timetableViewModeSpinner.setOnItemSelectedListener(this);
 
         //Reads Timetable info from json
-        timetableInfo = ReadTimetableInfoFromFile("timetablePrototype.txt");
+        timetableInfo = ReadTimetableInfoFromFile("timetablePrototype2.txt");
         ScreenText = view.findViewById(R.id.textView3);
 
-        saveTimetableInfoToJSON("timetablePrototype.txt"); //Save json
-        timetableInfo = ReadTimetableInfoFromFile("timetablePrototype.txt");
+        saveTimetableInfoToJSON("timetablePrototype2.txt"); //Save json
+        timetableInfo = ReadTimetableInfoFromFile("timetablePrototype2.txt");
 
         updateTimetable(dayDisplayed);
 
         return view;
     }
 
+    //Displays the entries for the day inside the timetable
     private void updateTimetable(int dayDisplayed) {
 
         entryDefaultHeight = measureOfHeight.getMeasuredHeight()+measureOfHeight2.getMeasuredHeight();
@@ -347,7 +318,6 @@ public class TimetableFrag extends Fragment implements AdapterView.OnItemSelecte
         }
     }
 
-
     private TextView findEntryWithTime(int startingTime) {
         TextView entrySlot = entry9;
         if(startingTime == 900)
@@ -467,6 +437,7 @@ public class TimetableFrag extends Fragment implements AdapterView.OnItemSelecte
         return t;
     }
 
+    //Changes what day is displayed inside the timetable
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         TextView selectedText = (TextView) view;
@@ -481,7 +452,6 @@ public class TimetableFrag extends Fragment implements AdapterView.OnItemSelecte
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
 
     private void changeDay(String direction)
     {

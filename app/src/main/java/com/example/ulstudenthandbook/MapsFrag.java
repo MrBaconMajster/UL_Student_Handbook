@@ -42,10 +42,7 @@ public class MapsFrag  extends Fragment{
             @Override
             public void onMapReady(GoogleMap googleMap) {
 
-
-
-                //When map is loaded
-                //Buildings
+                //Buildings locations
                 LatLng mainBuildingMarker = new LatLng(52.673861309293834, -8.57192221735993);
                 LatLng libraryMarker = new LatLng(52.673342482233245, -8.573470562705015);
                 LatLng concertHallMarker = new LatLng(52.674367089655384, -8.573400825257732);
@@ -63,7 +60,7 @@ public class MapsFrag  extends Fragment{
                 LatLng schoolOfMedicineBuildingMarker = new LatLng(52.67834171505514, -8.568195335353717);
                 LatLng irishWorldAcademy = new LatLng(52.67819532839715, -8.569706030546842);
 
-                //Parking
+                //Parking locations
                 LatLng parkingPaid1 = new LatLng(52.67260599309352, -8.569047354229467);
                 LatLng parkingPaid2 = new LatLng(52.67265649302877, -8.564941267893385);
                 LatLng parkingPaid3 = new LatLng(52.67482238126959, -8.575756393633233);
@@ -90,12 +87,10 @@ public class MapsFrag  extends Fragment{
                 LatLng parkingStaff10 = new LatLng(52.679478250452064, -8.567768963344285);
                 LatLng parkingStaff11 = new LatLng(52.674098289446, -8.5774882806745);
 
-
-
                 ArrayList<Marker> buildingArray = new ArrayList<>();
                 ArrayList<Marker> parkingArray = new ArrayList<>();
 
-                // Buildings
+                // Buildings markers
                 buildingArray.add(googleMap.addMarker(new MarkerOptions().position(mainBuildingMarker).title("Main Building(A,B,C,D,E)")));
                 buildingArray.add(googleMap.addMarker(new MarkerOptions().position(libraryMarker).title("Glucksman Library(GL)")));
                 buildingArray.add(googleMap.addMarker(new MarkerOptions().position(concertHallMarker).title("Foundation(F)")));
@@ -113,6 +108,7 @@ public class MapsFrag  extends Fragment{
                 buildingArray.add(googleMap.addMarker(new MarkerOptions().position(schoolOfMedicineBuildingMarker).title("Medical School(GEMS)")));
                 buildingArray.add(googleMap.addMarker(new MarkerOptions().position(irishWorldAcademy).title("Irish World Academy(IW)")));
 
+                // Parking markers
                 parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingPaid1).title("Paid Public Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("orange_parking_transparent",75, 100)))));
                 parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingPaid2).title("Paid Public Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("orange_parking_transparent",75, 100)))));
                 parkingArray.add(googleMap.addMarker(new MarkerOptions().position(parkingPaid3).title("Paid Public Parking").icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("orange_parking_transparent",75, 100)))));
@@ -139,7 +135,7 @@ public class MapsFrag  extends Fragment{
 
                 googleMap.setMapType(2);
 
-
+                //If a user wants to find a building it sets the focus onto the correct marker
                 if(getArguments() != null) {
                     System.out.println(getArguments().getString("marker"));
 
@@ -209,22 +205,18 @@ public class MapsFrag  extends Fragment{
                     {
                         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(irishWorldAcademy, 18));
                     }
-
                 }
                 else
                 {
                     googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(mainBuildingMarker, 16));
                 }
-//
-//
-//
             }
-
         });
 
         return view;
     }
 
+    //Resizes the reference image to the desired size
     public Bitmap resizeBitmap(String drawableName,int width, int height){
         Bitmap imageBitmap = BitmapFactory.decodeResource(getResources(),getResources().getIdentifier(drawableName, "drawable", getActivity().getPackageName()));
         return Bitmap.createScaledBitmap(imageBitmap, width, height, false);

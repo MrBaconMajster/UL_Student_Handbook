@@ -72,6 +72,7 @@ public class SignUp extends AppCompatActivity {
         if(password.equals(passwordCheck) == false)
         {
             passwordText2.setError("Passwords must match");
+            return;
         }
 
         progressBar.setVisibility(View.VISIBLE);
@@ -102,6 +103,6 @@ public class SignUp extends AppCompatActivity {
     }
 
     public void OfflineModePressed(View view) {
-        startActivity(new Intent(getApplicationContext(), MapsFrag.class));
+        startActivity(new Intent(getApplicationContext(), MainActivity2.class));
     }
 }
